@@ -1,0 +1,182 @@
+﻿<Window x:Class="WPF_Exam.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Exam"
+        mc:Ignorable="d"
+        Title="AdminWindow" MinHeight="700" MinWidth="1852" MaxWidth="1852">
+    <Window.Resources>
+        <BitmapImage x:Key="MyImageSource" UriSource="Image/Steam.png" />
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#FF282828" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="Typography.Capitals" Value="Titling"/>
+            <Setter Property="Foreground" Value="Gainsboro"/>
+            <Setter Property="FontFamily" Value="Calibri Light"/>
+            <Setter Property="FontWeight" Value= "Medium"/>
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button" >
+                        <Border CornerRadius="4" Background="{TemplateBinding Background}" BorderBrush="#FF282828" BorderThickness="4,4,4,4">
+                            <Grid>
+                                <Path x:Name="PathIcon" Width="15" Height="25" Stretch="Fill" Fill="#4C87B3" HorizontalAlignment="Left" Margin="17,0,0,0" Data="F1 M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z "/>
+                                <ContentPresenter Content="{TemplateBinding Content}" 
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}" />
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF66B3E4" />
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter TargetName="PathIcon" Property="Fill" Value="Black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="GreenBackground" TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button" >
+                        <Border CornerRadius="4" Background="#FF94D34A" BorderBrush="#FF6F9E37" BorderThickness="4,4,4,4">
+                            <ContentPresenter Content="{TemplateBinding Content}" 
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style  x:Key="RedBackground" TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}" >
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button" >
+                        <Border CornerRadius="4" Background="#FFE2526E" BorderBrush="#FFA93D52" BorderThickness="4,4,4,4">
+                            <ContentPresenter Content="{TemplateBinding Content}" 
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="WhiteBackground" TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}" >
+
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button" >
+                        <Border CornerRadius="4" Background="{TemplateBinding Background}" BorderBrush="#4C87B3" BorderThickness="4,4,4,4">
+                            <Grid>
+                                <Path x:Name="PathIcon2" Width="15" Height="25" Stretch="Fill" Fill="#FF282828" HorizontalAlignment="Left" Margin="17,0,0,0" Data="F1 M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z "/>
+                                <ContentPresenter Content="{TemplateBinding Content}" 
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}" />
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF66B3E4" />
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter TargetName="PathIcon2" Property="Fill" Value="Gainsboro" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="True">
+                                <Setter Property="Foreground"  Value="Gainsboro"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground"  Value="Gray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+        <Style x:Key="WhiteForLabel" TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="Typography.Capitals" Value="Titling"/>
+            <Setter Property="Foreground" Value="Gainsboro"/>
+            <Setter Property="FontFamily" Value="Calibri Light"/>
+            <Setter Property="FontWeight" Value= "Medium"/>
+            <Setter Property="Margin" Value="10,10,10,10" />
+        </Style>
+        <Style x:Key="WhiteForSmallLabel" TargetType="{x:Type Label}" BasedOn="{StaticResource WhiteForLabel}">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </Window.Resources>
+    <ScrollViewer>
+        <DockPanel>
+            <Border Margin ="5,5,5,5"  CornerRadius="5,5,5,5" Background="#4C87B3">
+                <Border Margin ="5,5,5,5"  CornerRadius="5,5,5,5" Background="#FF282828">
+                    <DockPanel LastChildFill="False">
+                        <DockPanel DockPanel.Dock="Top" >
+                            <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="600"></ColumnDefinition>
+                        <ColumnDefinition Width="600"></ColumnDefinition>
+                        <ColumnDefinition Width="600"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                                <Image Grid.Column="1" Margin="0,5,0,5" Source= "{StaticResource MyImageSource}" Height="250"></Image>
+                        <Button Style="{StaticResource WhiteBackground}" Content ="Set a discount for the Games" Click="Button_Click" Grid.Row="1" Grid.Column="0" Height="70"></Button>
+                        <Button Style="{StaticResource WhiteBackground}" Content ="Add Game" Click="Button_Click_3" Grid.Row="1" Grid.Column="1" Height="70"></Button>
+                        <Button Style="{StaticResource WhiteBackground}" Content ="Delete Game" Click="Button_Click_4" Grid.Row="1" Grid.Column="2" Height="70" Name="DeleteGame" IsEnabled="False"></Button>
+
+                                <DataGrid Name ="DataGRID" AutoGenerateColumns="false" Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="0" Grid.RowSpan="3" FontSize="18" SelectionChanged="DataGRID_SelectionChanged" Height="670" Width="1800" HorizontalAlignment="Left"  >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ID" Binding="{Binding ID}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Title" Binding="{Binding Name}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Genre" Binding="{Binding _Genre.Name}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Developer" Binding="{Binding _Developer.Name}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Publisher" Binding="{Binding _Publisher.Name}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Release Date" Binding="{Binding ReleaseDate}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Raiting" Binding="{Binding Raiting}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Cost Price" Binding="{Binding CostPrice}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Price" Binding="{Binding Price}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Count Of Sell" Binding="{Binding CountOfSell}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Original Game" Binding="{Binding OriginalGame}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Tag" Binding="{Binding _Tag.Name}"></DataGridTextColumn>
+                            </DataGrid.Columns>
+
+                        </DataGrid>
+                    </Grid>
+                        </DockPanel>
+
+                        <DockPanel DockPanel.Dock="Bottom">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition MinHeight="70"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="600"></ColumnDefinition>
+                                    <ColumnDefinition Width="600"></ColumnDefinition>
+                                    <ColumnDefinition Width="600"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Button Style="{StaticResource WhiteBackground}" Content ="Back" Click="Button_Click_2" Grid.Row="0" Grid.Column="0" Height="70"></Button>
+                                <Button Style="{StaticResource WhiteBackground}" Content ="Save" Click="Button_Click_1" Grid.Row="0" Grid.Column="1" Height="70"></Button>
+                            </Grid>
+                        </DockPanel>
+                    </DockPanel>
+
+                </Border>
+            </Border>
+
+        </DockPanel>
+
+        
+    </ScrollViewer>
+</Window>
